@@ -1,0 +1,40 @@
+-->we can remove "offset_value_problem" directly without any issue in "ERROR_CODE class,but on removing TEST_CODE 
+there can be some issue with Junit test cases.
+
+-->remove unused methods as well in KafkaStreamUtils.
+-->logback.xml,used to add application name ,hostname and all at once in the log.
+--------
+
+Check MISSING RECORD
+
+-->comment KafkaOffsetStoreServiceRetry in KafkaConsumerListener
+-->agar hm locally koi data test krte h..toh (KafkaOffsetStoreServiceRetry  aur processKafkaMessage(line78) in KafkaConsumerListener)
+ isko comment krna bahut zaruri h kyunki hmlog main table me data process nhi krna chahte.
+--->In Kafka Topic Consumer Listener add data like that you can copy it from converter also  for only key values.
+    -->Sample Data-
+
+if(KafkaStreamUtils.getStringValue(record.key(),"e1024_cdgenti").equalsIgnoreCase("0015")&&...you can add like that){
+sopln("###Records"+records)
+}.
+
+#concurrecy depends on number of partiotions count and put same in yml file.Please confirm it once with someone.
+now you can run configurations,create the configuration and store the output with in some file.
+
+ANd find'### Record'
+------------------------------------------------
+Now how to disable all logs-
+1)Go to ApplicationContextListening service ,put Sopln("ListenerContainerIdleEvent") to check we are getting idle event or not
+because ,in future steps we are going to disable alogs.
+2)put Error in logging level in yml files instead of info,it will remove all logs and you can see clear output.
+3)this way you can do,replace with head revision to revert changes
+4)raise ticket to check whether data is in raw db or not.
+
+  
+
+
+
+
+
+
+
+'
